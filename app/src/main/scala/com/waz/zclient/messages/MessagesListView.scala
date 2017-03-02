@@ -100,7 +100,8 @@ class MessagesListView(context: Context, attrs: AttributeSet, style: Int) extend
 
         smoothScrollToPosition(pos) //TODO figure out how to provide an offset, we should scroll to top of the message
       } else {
-        layoutManager.scrollToPosition(scrollTo)
+        if(!layoutManager.isSmoothScrolling)
+          layoutManager.scrollToPosition(scrollTo)
       }
     }
   }
